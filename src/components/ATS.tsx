@@ -61,11 +61,7 @@ export const ATS = () => {
     <div>
       <div className="flex flex-row justify-center mt-10">
         <div className="mr-2">
-          <Input
-            title={"Paste Your resume here"}
-            body={resumeBody}
-            setBody={setResumeBody}
-          />
+          <Input title={"Paste Your resume here"} setBody={setResumeBody} />
         </div>
         <div className="ml-2">
           <Input

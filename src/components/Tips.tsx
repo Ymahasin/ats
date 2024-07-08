@@ -135,9 +135,11 @@ export const Tips = ({ values, match }: TipsProps) => {
                 They value words that describe experience, like:
               </p>
               <ul>
-                {values.missingSeniorityWords.map((word: string) => (
-                  <li>👉 {word}</li>
-                ))}
+                {values.missingSeniorityWords.map(
+                  (word: string, index: number) => (
+                    <li key={index}>👉 {word}</li>
+                  )
+                )}
               </ul>
             </div>
           )}
