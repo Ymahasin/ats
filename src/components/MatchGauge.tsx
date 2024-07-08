@@ -14,10 +14,8 @@ export const MatchGauge = ({ match }: GaugeChartProps) => {
       type: "gauge",
       backgroundColor: "white",
       plotShadow: true,
-      //   height: "50%",
       width: 400,
       height: 250,
-      //   padding: 10,
       spacing: [10, 0, 0, 0],
     },
 
@@ -35,7 +33,6 @@ export const MatchGauge = ({ match }: GaugeChartProps) => {
       size: "100%",
     },
 
-    // the match axis
     yAxis: {
       min: 0,
       max: 100,

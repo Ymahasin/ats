@@ -3,10 +3,11 @@ import { validateInput } from "../helpers/ValidateText";
 
 type InputProps = {
   title: string;
+  body?: Map<string, number>;
   setBody: (map: Map<string, number>) => void;
 };
-export const Input = ({ title, setBody }: InputProps) => {
-  const [value, setvalue] = useState(title);
+export const Input = ({ title, body, setBody }: InputProps) => {
+  const [value, setvalue] = useState(body ? "Using last resume 👍" : title);
 
   const handleChange = (e: { target: { value: string } }) => {
     setvalue(e.target.value);

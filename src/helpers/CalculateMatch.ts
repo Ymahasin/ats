@@ -144,21 +144,6 @@ export const getMatchScore = (
   values[2] = seniorityValue;
   values[3] = resumeLengthValue;
 
-  console.log("missingTechWords:");
-  console.log(rank.missingTechWords);
-
-  console.log("tech to increase:");
-  console.log(rank.techWordsToIncrease);
-
-  console.log("missingEducation:");
-  console.log(rank.missingEducation);
-
-  console.log("seniorityValue");
-  console.log(rank.seniorityWordsToIncrease);
-
   const score = calculateWeightedSum(values, weights);
-  console.log("score:");
-  console.log(score);
-
   return [score, rank];
 };

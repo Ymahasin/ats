@@ -1,30 +1,14 @@
-# React + TypeScript + Vite
+HI! Welcome to my resumer parser. This is here to help you see how your current resume scores against a job description. It's currently tailored towards software engineers, namely web developers but it is constantly growing to a wider audience. Feel free to give it a shot and let me know your thoughts!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pending features:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Estimate salary based on the job description (look for $ signs)
+- add education requirement
+- change how we check the score for education from (bs === bachelors) to (education.includes("bs") || education.includes("bachelors"))
+- add better tips on how to improve the resume
+- add a list of missing words. "Try mentioning XXX"
+- add a list of low count words. "Try increasing XXX"
+- For educaiton. If BS vs Bachelors, tell them that they meet the requirement but may want to change the wording
+- add AI to say if they may be a good fit?
+- keep a list of old resumes? We can use this to see if the resume is getting better or worse
+- have a list on the side of resume with date and score

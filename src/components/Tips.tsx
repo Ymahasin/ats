@@ -26,33 +26,46 @@ const getTextForMatch = (match: number) => {
     );
   } else if (match > 60) {
     return (
-      <div className="flex flex-row">
-        <p className="mr-2">
-          {neutralEmojis[Math.floor(Math.random() * neutralEmojis.length)]}
+      <>
+        <div className="flex flex-row">
+          <p className="mr-2">
+            {neutralEmojis[Math.floor(Math.random() * neutralEmojis.length)]}
+          </p>
+          <p>
+            {
+              neutralRankReplies[
+                Math.floor(Math.random() * neutralRankReplies.length)
+              ]
+            }
+          </p>
+        </div>
+        <p className="font-normal text-sm">
+          Note: some ATSs fail to match subtle differences (ex. frontend & front
+          end, BS & Bacherlors). Try to match the job description as closely as
+          possible.
         </p>
-        <p>
-          {
-            neutralRankReplies[
-              Math.floor(Math.random() * neutralRankReplies.length)
-            ]
-          }
-        </p>
-      </div>
+      </>
     );
   } else {
     return (
-      <div className="flex flex-row">
-        <p className="mr-2">
-          {negEmojis[Math.floor(Math.random() * negEmojis.length)]}
+      <>
+        <div className="flex flex-row">
+          <p className="mr-2">
+            {negEmojis[Math.floor(Math.random() * negEmojis.length)]}
+          </p>
+          <p>
+            {
+              negativeRankReplies[
+                Math.floor(Math.random() * negativeRankReplies.length)
+              ]
+            }
+          </p>
+        </div>
+        <p className="font-normal text-sm">
+          Note: some ATSs fail to match subtle differences (ex. frontend and
+          front end). Try to match the job description as closely as possible.
         </p>
-        <p>
-          {
-            negativeRankReplies[
-              Math.floor(Math.random() * negativeRankReplies.length)
-            ]
-          }
-        </p>
-      </div>
+      </>
     );
   }
 };
@@ -76,8 +89,8 @@ export const Tips = ({ values, match }: TipsProps) => {
                 Try adding these missing tech words:
               </p>
               <ul>
-                {values.missingTechWords.map((word: string) => (
-                  <li>👉{word}</li>
+                {values.missingTechWords.map((word: string, index: number) => (
+                  <li key={index}>👉 {word}</li>
                 ))}
               </ul>
             </div>
@@ -89,9 +102,11 @@ export const Tips = ({ values, match }: TipsProps) => {
             <div>
               <p className="text-sm font-bold">Include achievements such as:</p>
               <ul>
-                {values.missingAchievementWords.map((word: string) => (
-                  <li>👉{word}</li>
-                ))}
+                {values.missingAchievementWords.map(
+                  (word: string, index: number) => (
+                    <li key={index}>👉 {word}</li>
+                  )
+                )}
               </ul>
             </div>
           )}
@@ -104,8 +119,8 @@ export const Tips = ({ values, match }: TipsProps) => {
                 Make sure you included your education:
               </p>
               <ul>
-                {values.missingEducation.map((word: string) => (
-                  <li>👉{word}</li>
+                {values.missingEducation.map((word: string, index: number) => (
+                  <li key={index}>👉 {word}</li>
                 ))}
               </ul>
             </div>
@@ -120,7 +135,7 @@ export const Tips = ({ values, match }: TipsProps) => {
               </p>
               <ul>
                 {values.missingSeniorityWords.map((word: string) => (
-                  <li>👉{word}</li>
+                  <li>👉 {word}</li>
                 ))}
               </ul>
             </div>
@@ -133,13 +148,14 @@ export const Tips = ({ values, match }: TipsProps) => {
           {needsTips && values.seniorityWordsToIncrease.length > 0 && (
             <div>
               <p className="text-sm font-bold">
-                Sweet, you mentioned these but they may want to see more
-                examples of it
+                They may want to see more examples of:
               </p>
               <ul>
-                {values.seniorityWordsToIncrease.map((word: string) => (
-                  <li>👉{word}</li>
-                ))}
+                {values.seniorityWordsToIncrease.map(
+                  (word: string, index: number) => (
+                    <li key={index}>👉 {word}</li>
+                  )
+                )}
               </ul>
             </div>
           )}
