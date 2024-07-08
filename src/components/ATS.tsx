@@ -59,11 +59,11 @@ export const ATS = () => {
 
   return (
     <div>
-      <div className="flex flex-row justify-center mt-10">
-        <div className="mr-2">
+      <div className="flex flex-row justify-center mt-10 space-4 flex-wrap">
+        <div className="mx-1">
           <Input title={"Paste Your resume here"} setBody={setResumeBody} />
         </div>
-        <div className="ml-2">
+        <div className="mx-1">
           <Input
             title={"Paste the Job Description here"}
             setBody={setDescriptionBody}
@@ -72,7 +72,7 @@ export const ATS = () => {
       </div>
 
       {resumeBody.size > 0 && descriptionBody.size > 0 && match && (
-        <div className="flex justify-center mt-14 mx-12 py-4 bg-white text-black rounded-lg pr-12">
+        <div className="flex justify-center mt-14 w-auto mx-4 p-4 bg-white text-black rounded-lg pr-12 flex-wrap">
           <MatchGauge match={match} />
           <Tips values={values} match={match} />
         </div>

@@ -12,7 +12,7 @@ export const MatchGauge = ({ match }: GaugeChartProps) => {
   const options = {
     chart: {
       type: "gauge",
-      backgroundColor: "white",
+      backgroundColor: null,
       plotShadow: true,
       width: 400,
       height: 250,
@@ -79,7 +79,7 @@ export const MatchGauge = ({ match }: GaugeChartProps) => {
     series: [
       {
         name: "Match",
-        data: [match],
+        data: [Math.floor(match)],
         tooltip: {
           valueSuffix: "%",
         },

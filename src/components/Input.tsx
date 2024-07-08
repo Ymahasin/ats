@@ -23,7 +23,7 @@ export const Input = ({ title, setBody }: InputProps) => {
   return (
     <div className="flex flex-col">
       <textarea
-        className="p-4"
+        className="p-4 w-40 md:w-auto"
         rows={16}
         cols={40}
         value={value}
