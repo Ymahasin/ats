@@ -38,7 +38,6 @@ function App() {
     const [score, rank] = getMatchScore(resumeBody, descriptionBody);
     setMatch(score);
     setValues(rank as Values);
-    console.log(values);
   }, [resumeBody, descriptionBody]);
 
   return (
