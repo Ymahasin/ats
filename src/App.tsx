@@ -6,6 +6,7 @@ import { MatchGauge } from "./components/MatchGauge";
 import { getMatchScore } from "./helpers/CalculateMatch";
 import { Values, wordObject } from "./types/Words";
 import { Tips } from "./components/Tips";
+import { Credits } from "./components/Credits";
 
 function App() {
   // contains the resume body as a map of words (that have been cleaned and validated) and their count
@@ -70,6 +71,10 @@ function App() {
           />
         </div>
       )}
+
+      <div className="flex flex-row w-screen absolute bottom-0 justify-center p-4">
+        <Credits />
+      </div>
     </div>
   );
 }
