@@ -4,7 +4,7 @@ import { Input } from "./components/Input";
 import { Stats } from "./components/Stats";
 import { MatchGauge } from "./components/MatchGauge";
 import { getMatchScore } from "./helpers/CalculateMatch";
-import { wordObject } from "./types/Words";
+import { Values, wordObject } from "./types/Words";
 import { Tips } from "./components/Tips";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
   const [topDescriptionWords, setTopDescriptionWords] = useState<
     [string, wordObject][]
   >([]);
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState<Values>({} as Values);
 
   useEffect(() => {
     const resume = Array.from(resumeBody).sort(
@@ -36,7 +36,8 @@ function App() {
     setTopDescriptionWords(description);
     const [score, rank] = getMatchScore(resumeBody, descriptionBody);
     setMatch(score);
-    setValues(rank);
+    setValues(rank as Values);
+    console.log(values);
   }, [resumeBody, descriptionBody]);
 
   return (

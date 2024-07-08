@@ -3,6 +3,7 @@ import {
   negativeRankReplies,
   positiveRankReplies,
 } from "../helpers/common";
+import { Values } from "../types/Words";
 
 const getTextForMatch = (match: number) => {
   const negEmojis = ["😬", "🫠", "🥶", "🫣"];
@@ -56,7 +57,11 @@ const getTextForMatch = (match: number) => {
   }
 };
 
-export const Tips = ({ values, match }) => {
+type TipsProps = {
+  values: Values;
+  match: number;
+};
+export const Tips = ({ values, match }: TipsProps) => {
   const needsTips = match < 90;
 
   return (

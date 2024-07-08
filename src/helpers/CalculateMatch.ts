@@ -1,4 +1,4 @@
-import { wordObject } from "../types/Words";
+import { Values, wordObject } from "../types/Words";
 import { CATEGORY } from "./Constants";
 
 /**
@@ -31,7 +31,7 @@ export const getMatchScore = (
   // Tech has the highest weight, followed by education, seniority, and resume length
   const weights = [0.55, 0.2, 0.2, 0.05];
 
-  const rank = {
+  const rank: Values = {
     missingTechWords: [] as string[],
     techWordsToIncrease: [] as string[],
     missingActionWords: [] as string[],
