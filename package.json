@@ -1,7 +1,8 @@
 {
   "name": "ats-resume-parser",
-  "private": false,
+  "private": true,
   "version": "0.0.0",
+  "homepage": "https://ymahasin.github.io/ats/",
   "type": "module",
   "scripts": {
     "dev": "vite",
