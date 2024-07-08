@@ -31,7 +31,6 @@ export const ATS = () => {
     ) {
       const resume = JSON.parse(localStorage.getItem("resume")!);
       setResumeBody(new Map(resume));
-      console.log(`resume laoded from LS`);
     }
   }, []);
 
@@ -39,7 +38,6 @@ export const ATS = () => {
     // save to localstorage
     if (resumeBody.size > 0) {
       localStorage.setItem(`resume`, JSON.stringify(Array.from(resumeBody)));
-      console.log(`saved to localstorage`);
       localStorage.getItem("resume");
     }
   }, [resumeBody]);
@@ -78,7 +76,7 @@ export const ATS = () => {
       </div>
 
       {resumeBody.size > 0 && descriptionBody.size > 0 && match && (
-        <div className="flex justify-center mt-14 mx-12 py-4 bg-white text-black rounded-lg">
+        <div className="flex justify-center mt-14 mx-12 py-4 bg-white text-black rounded-lg pr-12">
           <MatchGauge match={match} />
           <Tips values={values} match={match} />
         </div>

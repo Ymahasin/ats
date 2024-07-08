@@ -7,7 +7,11 @@ type InputProps = {
   setBody: (map: Map<string, number>) => void;
 };
 export const Input = ({ title, body, setBody }: InputProps) => {
-  const [value, setvalue] = useState(body ? "Using last resume 👍" : title);
+  console.log(body?.size);
+
+  const [value, setvalue] = useState(
+    body?.size > 100 ? "Using last resume 👍" : title
+  );
 
   const handleChange = (e: { target: { value: string } }) => {
     setvalue(e.target.value);
@@ -26,7 +30,7 @@ export const Input = ({ title, body, setBody }: InputProps) => {
       <textarea
         className="p-4"
         rows={16}
-        cols={50}
+        cols={40}
         value={value}
         onChange={handleChange}
         // @ts-expect-error next line

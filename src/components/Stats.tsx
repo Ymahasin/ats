@@ -36,7 +36,7 @@ export const Stats = ({ topResumeWords, topDescriptionWords }: StatsProps) => {
   const topTechWords = () => {
     return (
       <div className="flex flex-col mt-14 w-96">
-        <h2>Top Tech words comparison</h2>
+        <h2>Top tech words comparison</h2>
 
         <div className="flex flex-row justify-between mt-4">
           <ul>

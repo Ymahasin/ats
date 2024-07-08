@@ -39,10 +39,10 @@ const getTextForMatch = (match: number) => {
             }
           </p>
         </div>
-        <p className="font-normal text-sm">
-          Note: some ATSs fail to match subtle differences (ex. frontend & front
-          end, BS & Bacherlors). Try to match the job description as closely as
-          possible.
+        <p className="font-normal text-sm pt-3 pr-14">
+          Note: some resume tools fail to match subtle differences (ex. frontend
+          & front end, BS & Bachelor's). Try to match the job description as
+          closely as possible.
         </p>
       </>
     );
@@ -61,9 +61,10 @@ const getTextForMatch = (match: number) => {
             }
           </p>
         </div>
-        <p className="font-normal text-sm">
-          Note: some ATSs fail to match subtle differences (ex. frontend and
-          front end). Try to match the job description as closely as possible.
+        <p className="font-normal text-sm pt-3 pr-14">
+          Note: some resume tools fail to match subtle differences (ex. frontend
+          & front end, BS & Bachelor's). Try to match the job description as
+          closely as possible.
         </p>
       </>
     );
@@ -81,7 +82,7 @@ export const Tips = ({ values, match }: TipsProps) => {
     <div>
       <h3 className="text-lg font-bold pt-2 pb-4">{getTextForMatch(match)}</h3>
 
-      <div className="flex flex-row space-x-4">
+      <div className="flex flex-row space-x-4 pt-4">
         <div>
           {needsTips && values.missingTechWords.length > 0 && (
             <div>
