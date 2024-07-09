@@ -78,9 +78,6 @@ type TipsProps = {
 export const Tips = ({ values, match }: TipsProps) => {
   const needsTips = match < 90;
 
-  console.log(values.missingTitles);
-  console.log(values.missingTitles.length);
-
   return (
     <div>
       <h3 className="text-lg font-bold pt-2 pb-4">{getTextForMatch(match)}</h3>
