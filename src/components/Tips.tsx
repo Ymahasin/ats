@@ -78,11 +78,25 @@ type TipsProps = {
 export const Tips = ({ values, match }: TipsProps) => {
   const needsTips = match < 90;
 
+  console.log(values.missingTitles);
+  console.log(values.missingTitles.length);
+
   return (
     <div>
       <h3 className="text-lg font-bold pt-2 pb-4">{getTextForMatch(match)}</h3>
 
       <div className="flex flex-row pt-4 flex-wrap">
+        {needsTips && values.missingTitles.length > 0 && (
+          <div className="pr-4">
+            <p className="text-sm font-bold">Include relavent titles:</p>
+            <ul>
+              {values.missingTitles.map((word: string, index: number) => (
+                <li key={index}>👉 {word}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {needsTips && values.missingTechWords.length > 0 && (
           <div className="pr-4">
             <p className="text-sm font-bold">Add missing Tech Stack:</p>

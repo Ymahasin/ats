@@ -122,6 +122,58 @@ export const wordsToIgnore = new Set([
   "why",
 ]);
 
+export const titles = new Set([
+  "front-end developer",
+  "front end developer",
+  "frontend developer",
+  "front-end developer",
+
+  "front-end software developer",
+  "front end software developer",
+  "frontend software developer",
+  "front-end software developer",
+
+  "front end engineer",
+  "frontend engineer",
+  "front-end engineer",
+
+  "front end software engineer",
+  "frontend software engineer",
+  "front-end software engineer",
+
+  "back-end software developer",
+  "back end software developer",
+  "backend software developer",
+
+  "back-end developer",
+  "back end developer",
+  "backend developer",
+
+  "back end engineer",
+  "back-end engineer",
+  "backend engineer",
+
+  "back end software engineer",
+  "back-end software engineer",
+  "backend software engineer",
+
+  "fullstack software engineer",
+  "full-stack software engineer",
+  "full stack software engineer",
+
+  "full stack software developer",
+  "fullstack software developer",
+  "full-stack software developer",
+
+  "full stack developer",
+  "fullstack developer",
+  "full-stack developer",
+
+  "full-stack engineer",
+  "full stack engineer",
+  "fullstack engineer",
+]);
+
 export const techWords = new Set([
   "adobe",
   "photoshop",
@@ -201,23 +253,23 @@ export const techWords = new Set([
   "front end",
   "frontend",
   "front-end",
-  "front-end developer",
-  "front end developer",
-  "frontend developer",
-  "front-end developer",
-  "front end engineer",
-  "frontend engineer",
-  "front-end engineer",
+  // "front-end developer",
+  // "front end developer",
+  // "frontend developer",
+  // "front-end developer",
+  // "front end engineer",
+  // "frontend engineer",
+  // "front-end engineer",
   "back end",
   "backend",
   "back-end",
-  "back-end developer",
-  "back end developer",
-  "backend developer",
-  "back-end developer",
-  "back end engineer",
-  "backend engineer",
-  "back-end engineer",
+  // "back-end developer",
+  // "back end developer",
+  // "backend developer",
+  // "back-end developer",
+  // "back end engineer",
+  // "backend engineer",
+  // "back-end engineer",
   "full stack",
   "fullstack",
   "full-stack",

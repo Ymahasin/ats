@@ -26,12 +26,13 @@ export const getMatchScore = (
   resume: Map<string, wordObject>,
   description: Map<string, wordObject>
 ): [number, object] => {
-  // values: [Tech, education, seniority, resume length]
-  const values = [0, 0, 0, 0];
+  // values: [Title, Tech, education, seniority, resume length]
+  const values = [0, 0, 0, 0, 0];
   // Tech has the highest weight, followed by education, seniority, and resume length
-  const weights = [0.55, 0.2, 0.2, 0.05];
+  const weights = [0.2, 0.35, 0.2, 0.2, 0.05];
 
   const rank: Values = {
+    missingTitles: [] as string[],
     missingTechWords: [] as string[],
     techWordsToIncrease: [] as string[],
     missingActionWords: [] as string[],
@@ -51,8 +52,11 @@ export const getMatchScore = (
     if (obj.category === CATEGORY.UNKNOWN) {
       continue;
     }
+
     if (!resume.has(word)) {
-      if (obj.category === CATEGORY.TECH) {
+      if (obj.category === CATEGORY.TITLE) {
+        rank.missingTitles.push(word);
+      } else if (obj.category === CATEGORY.TECH) {
         rank.missingTechWords.push(word);
       } else if (obj.category === CATEGORY.ACTION) {
         rank.missingActionWords.push(word);
@@ -84,10 +88,21 @@ export const getMatchScore = (
   }
 
   // ======== Values ======
+  let titleValue = 100;
   let techValue = 100;
   let educationValue = 100;
   let seniorityValue = 100;
   let resumeLengthValue = 100;
+
+  // look for missing titles
+  const missingTitles = rank.missingTitles.length;
+  if (missingTitles > 0) {
+    if (missingTitles > 2) {
+      titleValue = titleValue - 100;
+    } else {
+      titleValue = titleValue - 80;
+    }
+  }
 
   // look for missing or low tech words
   const missingTech = rank.missingTechWords.length;
@@ -139,10 +154,11 @@ export const getMatchScore = (
     resumeLengthValue = resumeLengthValue - 50;
   }
 
-  values[0] = techValue;
-  values[1] = educationValue;
-  values[2] = seniorityValue;
-  values[3] = resumeLengthValue;
+  values[0] = titleValue;
+  values[1] = techValue;
+  values[2] = educationValue;
+  values[3] = seniorityValue;
+  values[4] = resumeLengthValue;
 
   const score = calculateWeightedSum(values, weights);
   return [score, rank];

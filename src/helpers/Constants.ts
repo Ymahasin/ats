@@ -1,4 +1,5 @@
 export const CATEGORY = {
+  TITLE: "title",
   TECH: "tech",
   ACTION: "action",
   ACHIEVEMENT: "achievement",
