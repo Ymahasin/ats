@@ -1,5 +1,6 @@
 import { CATEGORY } from "./Constants";
 import {
+  titles,
   achievementWords,
   actionWords,
   educationWords,
@@ -14,7 +15,9 @@ const isProbablyAllNumbers = (word: string) => {
 };
 
 const getWordCategory = (word: string) => {
-  if (techWords.has(word)) {
+  if (titles.has(word)) {
+    return CATEGORY.TITLE;
+  } else if (techWords.has(word)) {
     return CATEGORY.TECH;
   } else if (actionWords.has(word)) {
     return CATEGORY.ACTION;
@@ -78,21 +81,7 @@ export const validateInput = (text: string[]) => {
       const [increment, fullword] = checkIfEngineerOrDeveloper(
         cleanedText.slice(i, i + 4)
       );
-      word = word + "end" + fullword;
-      i = i + increment + 1;
-      hasIncremented = true;
-    }
-
-    if (
-      (!hasIncremented &&
-        cleanedText[i] === "back" &&
-        cleanedText[i + 2] === "end") ||
-      (cleanedText[i] === "front" && cleanedText[i + 2] === "end")
-    ) {
-      const [increment, fullword] = checkIfEngineerOrDeveloper(
-        cleanedText.slice(i, i + 4)
-      );
-      word = word + fullword;
+      word = word + " end" + fullword;
       i = i + increment + 1;
       hasIncremented = true;
     }
@@ -113,11 +102,15 @@ export const validateInput = (text: string[]) => {
       hasIncremented = true;
     }
 
-    if (!hasIncremented && cleanedText[i + 1] === "stack") {
+    if (
+      !hasIncremented &&
+      cleanedText[i] === "full" &&
+      cleanedText[i + 1] === "stack"
+    ) {
       const [increment, fullword] = checkIfEngineerOrDeveloper(
         cleanedText.slice(i, i + 4)
       );
-      word = word + fullword;
+      word = "full stack" + fullword;
       i = i + increment + 1;
       hasIncremented = true;
     }

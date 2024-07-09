@@ -5,7 +5,9 @@ import { ATS } from "./components/ATS";
 function App() {
   return (
     <div className="w-screen">
-      <header className="flex justify-center mt-10">The Free ATS</header>
+      <header className="flex justify-center mt-10">
+        Web Dev's Resume Scanner
+      </header>
 
       <ATS />
 
@@ -17,3 +19,5 @@ function App() {
 }
 
 export default App;
+
+// pickup here: add Titles. So we can choose between a tech stack word and a job title

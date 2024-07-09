@@ -4,6 +4,7 @@ export type wordObject = {
 };
 
 export type Values = {
+  missingTitles: string[];
   missingTechWords: string[];
   techWordsToIncrease: string[];
   missingActionWords: string[];
