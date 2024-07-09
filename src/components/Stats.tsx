@@ -11,7 +11,7 @@ export const Stats = ({ topResumeWords, topDescriptionWords }: StatsProps) => {
         <h2>Top mentioned words</h2>
 
         <div className="flex flex-row justify-between mt-4">
-          <ul className="w-48">
+          <ul>
             <h2 className="font-bold pb-1">Resume</h2>
             {topResumeWords.slice(0, 10).map((word, i) => (
               <li key={i} className="flex items-center mt-1">
@@ -20,7 +20,7 @@ export const Stats = ({ topResumeWords, topDescriptionWords }: StatsProps) => {
             ))}
           </ul>
 
-          <ul className="w-48">
+          <ul>
             <h2 className="font-bold pb-1">Job Description</h2>
             {topDescriptionWords.slice(0, 10).map((word, i) => (
               <li key={i} className="flex items-center mt-1">
