@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="w-screen">
       <header className="flex justify-center mt-10">
-        Web Dev's Resume Scanner
+        <h1 className="text-xl font-bold">Web Dev's Resume Scanner</h1>
       </header>
 
       <ATS />
