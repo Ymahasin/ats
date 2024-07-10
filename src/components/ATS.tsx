@@ -23,24 +23,24 @@ export const ATS = () => {
   >([]);
   const [values, setValues] = useState<Values>({} as Values);
 
-  useEffect(() => {
-    // get from localstorage
-    if (
-      localStorage.getItem("resume") !== null &&
-      localStorage.getItem("resume") !== undefined
-    ) {
-      const resume = JSON.parse(localStorage.getItem("resume")!);
-      setResumeBody(new Map(resume));
-    }
-  }, []);
+  // useEffect(() => {
+  //   // get from localstorage
+  //   if (
+  //     localStorage.getItem("resume") !== null &&
+  //     localStorage.getItem("resume") !== undefined
+  //   ) {
+  //     const resume = JSON.parse(localStorage.getItem("resume")!);
+  //     setResumeBody(new Map(resume));
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    // save to localstorage
-    if (resumeBody.size > 0) {
-      localStorage.setItem(`resume`, JSON.stringify(Array.from(resumeBody)));
-      localStorage.getItem("resume");
-    }
-  }, [resumeBody]);
+  // useEffect(() => {
+  //   // save to localstorage
+  //   if (resumeBody.size > 0) {
+  //     localStorage.setItem(`resume`, JSON.stringify(Array.from(resumeBody)));
+  //     localStorage.getItem("resume");
+  //   }
+  // }, [resumeBody]);
 
   useEffect(() => {
     const resume = Array.from(resumeBody).sort(

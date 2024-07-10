@@ -1,19 +1,37 @@
-# Use the official Node.js 16 image as a parent image
-FROM node:22.0.0-alpine3.19 as build
+# Build stage
+FROM node:14-alpine AS build
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
-COPY package.json .
 
+RUN mkdir /app/dist
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+RUN ls -la
 # Install dependencies
-RUN npm install
+RUN npm i
 
-# Copy the rest of your application's source code
+# Copy the entire project
 COPY . .
 
-# Build your TypeScript application
+# Build the Vite React application
 RUN npm run build
 
-# Your application's build command might output to the 'dist' directory
-# Adjust the start command according to your setup
-CMD ["node", "dist/index.js"]
+# RUN mkdir /app/build
+
+# Production stage
+FROM nginx:alpine
+
+# Set working directory to nginx asset directory
+WORKDIR /usr/share/nginx/html
+
+# Remove default nginx static assets
+RUN rm -rf ./*
+
+# Copy static assets from builder stage
+COPY --from=build /app/dist .
+
+# Containers run nginx with global directives and daemon off
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
