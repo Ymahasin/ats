@@ -4,6 +4,7 @@ export const wordsToIgnore = new Set([
   "at",
   "age",
   "as",
+  "description",
   "the",
   "each",
   "a",
