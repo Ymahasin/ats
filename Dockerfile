@@ -1,37 +1,31 @@
-# Build stage
-FROM node:14-alpine AS build
+# Step 1: Build the React application
+# Use a Node.js image to build the application
+FROM node:16 AS build
 
-# Set working directory
+# Set the working directory in the container
 WORKDIR /app
 
-RUN mkdir /app/dist
-
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json to work directory
 COPY package*.json ./
 
-RUN ls -la
 # Install dependencies
-RUN npm i
+RUN npm install
 
-# Copy the entire project
+# Copy the rest of the application code
 COPY . .
 
-# Build the Vite React application
+# Build the application
 RUN npm run build
 
-# RUN mkdir /app/build
-
-# Production stage
+# Step 2: Serve the application using nginx
+# Use an nginx image to serve the built application
 FROM nginx:alpine
 
-# Set working directory to nginx asset directory
-WORKDIR /usr/share/nginx/html
+# Copy the built application from the build stage to the nginx serve directory
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Remove default nginx static assets
-RUN rm -rf ./*
+# Expose port 80 to the Docker host, so we can access the application
+EXPOSE 80
 
-# Copy static assets from builder stage
-COPY --from=build /app/dist .
-
-# Containers run nginx with global directives and daemon off
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]

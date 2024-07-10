@@ -1,5 +1,5 @@
 {
-  "name": "ats-resume-parser",
+  "name": "ats",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "deploy": "gh-pages -d dist",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build --base=./",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
