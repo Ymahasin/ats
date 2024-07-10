@@ -1,11 +1,9 @@
 # Use the official Node.js 16 image as a parent image
-FROM node:16
+FROM node:22.0.0-alpine3.19 as build
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json (or yarn.lock)
-COPY package*.json ./
+WORKDIR /app
+COPY package.json .
 
 # Install dependencies
 RUN npm install
