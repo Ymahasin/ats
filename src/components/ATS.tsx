@@ -22,15 +22,17 @@ export const ATS = () => {
     [string, wordObject][]
   >([]);
   const [values, setValues] = useState<Values>({} as Values);
+  const [retrievedFromLS, setRetrievedFromLS] = useState(false);
 
   useEffect(() => {
-    // get from localstorage
+    // get from localstorage if it exists
     if (
       localStorage.getItem("resume") !== null &&
       localStorage.getItem("resume") !== undefined
     ) {
       const resume = JSON.parse(localStorage.getItem("resume")!);
       setResumeBody(new Map(resume));
+      setRetrievedFromLS(true);
     }
   }, []);
 
@@ -38,7 +40,6 @@ export const ATS = () => {
     // save to localstorage
     if (resumeBody.size > 0) {
       localStorage.setItem(`resume`, JSON.stringify(Array.from(resumeBody)));
-      localStorage.getItem("resume");
     }
   }, [resumeBody]);
 
@@ -61,7 +62,12 @@ export const ATS = () => {
     <div>
       <div className="flex flex-row justify-center mt-10 space-4 flex-wrap">
         <div className="mx-1">
-          <Input title={"Paste Your resume here"} setBody={setResumeBody} />
+          <Input
+            title={"Paste Your resume here"}
+            setBody={setResumeBody}
+            hasBody={retrievedFromLS}
+            setHasBody={setRetrievedFromLS}
+          />
         </div>
         <div className="mx-1">
           <Input

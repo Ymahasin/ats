@@ -4,8 +4,12 @@ import { validateInput } from "../helpers/ValidateText";
 type InputProps = {
   title: string;
   setBody: (map: Map<string, number>) => void;
+  hasBody?: boolean;
+  setHasBody?: (hasBody: boolean) => void;
 };
-export const Input = ({ title, setBody }: InputProps) => {
+
+// "Using your last resume 👍"
+export const Input = ({ title, setBody, hasBody, setHasBody }: InputProps) => {
   const [value, setvalue] = useState(title);
 
   const handleChange = (e: { target: { value: string } }) => {
@@ -18,6 +22,10 @@ export const Input = ({ title, setBody }: InputProps) => {
   const handleClear = () => {
     setvalue(title);
     setBody(new Map());
+    if (localStorage.getItem("resume") !== null) {
+      localStorage.removeItem("resume");
+      setHasBody(false);
+    }
   };
 
   return (
@@ -26,7 +34,7 @@ export const Input = ({ title, setBody }: InputProps) => {
         className="p-4 w-40 md:w-auto"
         rows={16}
         cols={40}
-        value={value}
+        value={hasBody ? "Using your last resume 👍" : value}
         onChange={handleChange}
         // @ts-expect-error next line
         onClick={(e) => e.target.select()}
