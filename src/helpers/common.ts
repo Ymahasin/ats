@@ -351,13 +351,12 @@ export const seniorityWords = new Set([
   "intermediate",
   "intermediate-level",
   "experienced",
-  "experience",
-  "experiences",
   "expert",
   "managed",
   "manage",
   "manager",
-  "management",
+  "highly skilled",
+  "skilled",
 ]);
 
 export const educationWords = new Set([

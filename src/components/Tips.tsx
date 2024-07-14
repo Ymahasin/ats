@@ -96,7 +96,7 @@ export const Tips = ({ values, match }: TipsProps) => {
 
         {needsTips && values.missingTechWords.length > 0 && (
           <div className="pr-4">
-            <p className="text-sm font-bold">Add missing Tech Stack:</p>
+            <p className="text-sm font-bold">Push to your Stack:</p>
             <ul>
               {values.missingTechWords.map((word: string, index: number) => (
                 <li key={index}>👉 {word}</li>
@@ -146,7 +146,11 @@ export const Tips = ({ values, match }: TipsProps) => {
 
         {needsTips && values.seniorityWordsToIncrease.length > 0 && (
           <div className="pr-4">
-            <p className="text-sm font-bold">They want to see more:</p>
+            <p className="text-sm font-bold">
+              {values.seniorityWordsToIncrease.length === 1
+                ? "They value the word:"
+                : "Words they value:"}
+            </p>
             <ul>
               {values.seniorityWordsToIncrease.map(
                 (word: string, index: number) => (
