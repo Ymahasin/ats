@@ -176,7 +176,10 @@ export const titles = new Set([
 ]);
 
 export const techWords = new Set([
+  "cloud computing",
   "adobe",
+  "ai",
+  "ml",
   "photoshop",
   "analytics",
   "a11y",
