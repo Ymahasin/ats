@@ -22,9 +22,6 @@ export const MatchGauge = ({ match }: GaugeChartProps) => {
     title: {
       text: "Match Score",
     },
-    credits: {
-      enabled: false,
-    },
     pane: {
       startAngle: -90,
       endAngle: 90,

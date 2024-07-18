@@ -19,5 +19,3 @@ function App() {
 }
 
 export default App;
-
-// pickup here: add Titles. So we can choose between a tech stack word and a job title

@@ -29,7 +29,7 @@ export const getMatchScore = (
   // values: [Title, Tech, education, seniority, resume length]
   const values = [0, 0, 0, 0, 0];
   // Tech has the highest weight, followed by education, seniority, and resume length
-  const weights = [0.2, 0.35, 0.2, 0.2, 0.05];
+  const weights = [0.35, 0.2, 0.2, 0.2, 0.05];
 
   const rank: Values = {
     missingTitles: [] as string[],
