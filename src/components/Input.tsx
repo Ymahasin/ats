@@ -8,7 +8,6 @@ type InputProps = {
   setHasBody?: (hasBody: boolean) => void;
 };
 
-// "Using your last resume 👍"
 export const Input = ({ title, setBody, hasBody, setHasBody }: InputProps) => {
   const [value, setvalue] = useState(title);
 
